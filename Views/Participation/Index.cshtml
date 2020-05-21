@@ -1,0 +1,33 @@
+@model Promotion.ViewModel.VoteViewModel
+@{
+    ViewData["Title"] = "Participação";
+}
+<div class="container">
+    <div class="row featurette" id="about">
+        <div class="col-md-7 order-md-2 mx-auto">
+            <h2 class="featurette-heading">Vote no Ep que mais gostou</h2>
+            <hr>
+            @{
+                List<Promotion.Models.Episode> episodes = ViewBag.Episodes as List<Promotion.Models.Episode>;
+            }
+            <form asp-action="Vote" asp-controller="Participation">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="EpisodeId">Selecione o episódio</label>
+                        <select name="EpisodeId" class="form-control">
+                            @if (episodes.Any())
+                            {
+                                @foreach (var episode in episodes)
+                                {
+                                    <option value="@episode.Id">@episode.Title</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="EpisodeId" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Votar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+@model Promotion.Areas.ParticipantArea.ViewModel.ForgotPasswordViewModel
+@{
+    ViewData["Title"] = "Participação";
+}
+<div class="container">
+    <div class="row featurette" id="about">
+        <div class="col-md-7 order-md-2 mx-auto">
+            <h2 class="featurette-heading">Recuperar senha</h2>
+            <hr>
+            <form asp-action="Send" asp-controller="ForgetPassword">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" class="form-control">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>

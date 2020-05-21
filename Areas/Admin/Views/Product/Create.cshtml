@@ -1,0 +1,40 @@
+@model Promotion.Areas.Admin.ViewModel.ProductCreateViewModel
+@{
+    ViewData["Title"] = "Produtos";
+    ViewData["Controller"] = "Product";
+}
+@section Header {
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Adicionar novo produto</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+          <a asp-controller="Product" asp-action="Index" class="btn btn-sm btn-primary">
+            Voltar
+            <svg class="bi bi-arrow-left-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/></svg>
+          </a>
+      </div>
+  </div>
+}
+<form asp-action="Store" asp-controller="Product" enctype="multipart/form-data">
+    <div class="form-group">
+      <label asp-for="Name">Nome</label>
+      <input asp-for="Name" type="text" class="form-control">
+      <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+      <label asp-for="Description">Descrição</label>
+      <textarea asp-for="Description" class="form-control" cols="30" rows="5"></textarea>
+      <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+      <label asp-for="Image">Imagem</label>
+      <input asp-for="Image" class="form-control">
+      <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+      <label asp-for="ImageMobile">Imagem Mobile</label>
+      <input asp-for="ImageMobile" class="form-control">
+      <span asp-validation-for="ImageMobile" class="text-danger"></span>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>

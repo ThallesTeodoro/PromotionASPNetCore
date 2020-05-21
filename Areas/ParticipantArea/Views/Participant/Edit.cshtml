@@ -1,0 +1,72 @@
+@model Promotion.Areas.ParticipantArea.ViewModel.ParticipantEditViewModel
+@{
+    ViewData["Title"] = "Participant";
+}
+<div class="container">
+    <div class="row featurette" id="about">
+        <div class="col-md-7 order-md-2 mx-auto">
+            <h2 class="featurette-heading">Editar seus dados</h2>
+            <hr>
+            <form asp-action="Update" asp-controller="Participant" asp-route-id="@Model.Id">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <h3>Success!</h3>
+                        @TempData["Success"]
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <h3>Error!</h3>
+                        @TempData["Error"]
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Name">Nome</label>
+                        <input asp-for="Name" type="text" class="form-control">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email"type="email" class="form-control" disabled>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Birthdate">Data de Nascimento</label>
+                        <input asp-for="Birthdate" class="form-control">
+                        <span asp-validation-for="Birthdate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Gender">Genero (M | F)</label>
+                        <input asp-for="Gender" class="form-control">
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Password">Senha</label>
+                        <input asp-for="Password" type="password" class="form-control">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="PasswordConfirmation">Confirmar senha</label>
+                        <input asp-for="PasswordConfirmation" type="password" class="form-control">
+                        <span asp-validation-for="PasswordConfirmation" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>

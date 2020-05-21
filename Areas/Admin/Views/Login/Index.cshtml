@@ -1,0 +1,44 @@
+@model Promotion.Areas.Admin.ViewModel.LoginViewModel
+@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Login";
+}
+
+<form class="form-signin" asp-controller="Login" asp-action="Auth">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h3>Success!</h3>
+            @TempData["Success"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <h3>Error!</h3>
+            @TempData["Error"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <h1 class="h3 mb-3 font-weight-normal">Authenticação</h1>
+    
+    <div><span asp-validation-for="Email" class="text-danger"></span></div>
+    <div><span asp-validation-for="Password" class="text-danger"></span></div>
+    
+    <label asp-for="Email" class="sr-only">E-mail</label>
+    <input asp-for="Email" type="email" class="form-control" placeholder="Email address">
+    
+    <label asp-for="Password" class="sr-only">Senha</label>
+    <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+    
+    <div class="checkbox mb-3">
+        <label><input type="checkbox" value="remember-me"> Matenha-me conectado</label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+</form>

@@ -1,0 +1,37 @@
+@model Promotion.Areas.ParticipantArea.ViewModel.ResetPasswordViewModel
+@{
+    ViewData["Title"] = "Participação";
+}
+<div class="container">
+    <div class="row featurette" id="about">
+        <div class="col-md-7 order-md-2 mx-auto">
+            <h2 class="featurette-heading">Recuperar senha</h2>
+            <hr>
+            <form asp-action="Reset" asp-controller="ResetPassword">
+                <input type="hidden" asp-for="Token">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email"type="email" class="form-control">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Password">Senha</label>
+                        <input asp-for="Password" type="password" class="form-control">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="PasswordConfirmation">Confirmar senha</label>
+                        <input asp-for="PasswordConfirmation" type="password" class="form-control">
+                        <span asp-validation-for="PasswordConfirmation" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>
